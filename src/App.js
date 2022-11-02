@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import { Card, Row, Col, Divider, Input, Button } from 'antd';
 import './App.css';
+import foods from './foods.json';
+// import {useState} from "react"
+import FoodBox from './components/FoodBox';
 
 function App() {
+  const foodsArr = foods;
+  // const [foodList, setFoodList] = useState(foodsArr);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+      {/* {foodsArr.map((eachFood, index) => {
+       return ( 
+       <div key={eachFood.name + index}>
+          <p>{eachFood.name}</p>
+          <img src={eachFood.image} width={150} alt="foodImg" />
+        </div>
+       )
+      })} */}
+
+      <Row>
+        <Col>
+          <Divider>Fancy Input</Divider>
+          <Input value={''} onChange={() => {}} />
+        </Col>
+
+        {foodsArr.map((eachFood, index) => {
+          return (
+            <div key={eachFood.name + index}>
+              <FoodBox eachDish={eachFood} />
+            </div>
+          );
+        })}
+
+        <Col>
+          <Card title={'Fancy Card'}>
+            <Button onClick={() => {}}>Fancy Button</Button>
+          </Card>
+        </Col>
+      </Row>
+      </div>
     </div>
   );
 }
