@@ -10,36 +10,45 @@ import AddFoodForm from './components/AddFoodForm';
 function App() {
   const foodsArr = foods;
   const [foodList, setFoodList] = useState(foodsArr);
+
+  const [formShow, setFormShow] = useState(false)
   
   
-  // const addDish = (dish) => {
-    
-  //   const copyFoodsArr = [...foodList]
+  const toggleForm = () => {
 
+    setFormShow(!formShow)
 
-  // }
+  }
   
   return (
     <div className="App">
         <div>
-
-      <Row> 
-               <Col>
-          <Card title={'Fancy Card'}>
+          
+        <Col>
+          <Card>
        
-            <Button onClick={() => {}}>Fancy Button</Button>
+            <Button onClick={toggleForm}>Create New Dish</Button>
             
-            <AddFoodForm setFoodList={setFoodList}/>
+            {formShow === true && <AddFoodForm setFoodList={setFoodList}/>}
           
           </Card>
         </Col>
 
         <Col>
-          <Divider>Fancy Input</Divider>
+          <Divider>Search Dish</Divider>
           <Input value={''} onChange={() => {}} />
         </Col>
-        
+    </div>
+    <div>
+      <Row> 
 
+     
+
+    
+
+     
+        
+     
         {foodList.map((eachFood, index) => {
           return (
             <div key={eachFood.name + index}>
@@ -47,7 +56,7 @@ function App() {
             </div>
           )
         })}
-
+       
  
       </Row>
       </div>
