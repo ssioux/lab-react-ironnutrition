@@ -30,6 +30,15 @@ function AddFoodForm(props) {
         return copy
     })
 
+    props.setFoodListShown((currentState) => {
+      const copy2 = [...currentState]
+      copy2.push(newDish)
+      return copy2
+    
+    })
+
+
+
   };
 
   // * handle
@@ -57,7 +66,7 @@ function AddFoodForm(props) {
       <Divider>Add Food Entry</Divider>
 
       <label htmlFor="name">Name</label>
-      <Input value={dishInput} type="text" name="name"onChange={handlechangeName} />
+      <Input value={dishInput} type="text" name="name" onChange={handlechangeName} />
 
       <label htmlFor="image">Image</label>
       <Input
