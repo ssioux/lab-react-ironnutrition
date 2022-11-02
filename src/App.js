@@ -1,43 +1,43 @@
 import { Card, Row, Col, Divider, Input, Button } from 'antd';
 import './App.css';
 import foods from './foods.json';
-// import {useState} from "react"
+import {useState} from "react"
 import FoodBox from './components/FoodBox';
+import AddFoodForm from './components/AddFoodForm';
 
 function App() {
   const foodsArr = foods;
-  // const [foodList, setFoodList] = useState(foodsArr);
+  const [foodList, setFoodList] = useState(foodsArr);
+  
+  
+  const addDish = () => {
+
+  }
+  
   return (
     <div className="App">
         <div>
-      {/* {foodsArr.map((eachFood, index) => {
-       return ( 
-       <div key={eachFood.name + index}>
-          <p>{eachFood.name}</p>
-          <img src={eachFood.image} width={150} alt="foodImg" />
-        </div>
-       )
-      })} */}
 
       <Row>
-        <Col>
+        {/* <Col>
           <Divider>Fancy Input</Divider>
           <Input value={''} onChange={() => {}} />
-        </Col>
+        </Col> */}
+        <AddFoodForm />
 
-        {foodsArr.map((eachFood, index) => {
+        {foodList.map((eachFood, index) => {
           return (
             <div key={eachFood.name + index}>
               <FoodBox eachDish={eachFood} />
             </div>
-          );
+          )
         })}
 
-        <Col>
+        {/* <Col>
           <Card title={'Fancy Card'}>
             <Button onClick={() => {}}>Fancy Button</Button>
           </Card>
-        </Col>
+        </Col> */}
       </Row>
       </div>
     </div>
