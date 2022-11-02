@@ -5,25 +5,40 @@ import {useState} from "react"
 import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
 
+// return string[0].toUpperCase() + string.slice(1).toLowerCase();
+
 function App() {
   const foodsArr = foods;
   const [foodList, setFoodList] = useState(foodsArr);
   
   
-  const addDish = () => {
+  // const addDish = (dish) => {
+    
+  //   const copyFoodsArr = [...foodList]
 
-  }
+
+  // }
   
   return (
     <div className="App">
         <div>
 
-      <Row>
-        {/* <Col>
+      <Row> 
+               <Col>
+          <Card title={'Fancy Card'}>
+       
+            <Button onClick={() => {}}>Fancy Button</Button>
+            
+            <AddFoodForm setFoodList={setFoodList}/>
+          
+          </Card>
+        </Col>
+
+        <Col>
           <Divider>Fancy Input</Divider>
           <Input value={''} onChange={() => {}} />
-        </Col> */}
-        <AddFoodForm />
+        </Col>
+        
 
         {foodList.map((eachFood, index) => {
           return (
@@ -33,11 +48,7 @@ function App() {
           )
         })}
 
-        {/* <Col>
-          <Card title={'Fancy Card'}>
-            <Button onClick={() => {}}>Fancy Button</Button>
-          </Card>
-        </Col> */}
+ 
       </Row>
       </div>
     </div>
